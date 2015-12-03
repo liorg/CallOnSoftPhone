@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Runtime.InteropServices;
+using Interop.SmartBarClient;
+
+
+namespace SmartBarActiveXControl
+{
+    public interface SBClient
+    {
+        void Init(string username, string password, string extension);
+        void MakeCall(string number);
+        object Terminate(bool ShowLogOffWarnings);
+        int LogoffSmartBar(ref bool DisplayWarning);
+    }
+
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    public class SmartBar : SBClient
+    {
+
+        ClientClass cl;
+        public void Init(string username, string password, string extension)
+        {
+            cl = (ClientClass)Activator.CreateInstance(typeof(ClientClass), true);
+            if (cl != null)
+                cl.Init(true, true, false, username, password, extension, 0);
+        }
+        public object Terminate(bool ShowLogOffWarnings)
+        {
+            Object o = null;
+            if (cl != null)
+                o = cl.Terminate(ShowLogOffWarnings);
+            return o;
+        }
+        public int LogoffSmartBar(ref bool DisplayWarning)
+        {
+            int i = 0;
+            if (cl != null)
+                i = cl.LogoffSmartBar(ref DisplayWarning);
+            return i;
+        }
+        public void MakeCall(string number)
+        {
+            if (cl != null)
+                cl.Agent_PressButton_MakeCall("", number, "");
+
+        }
+
+
+        #region SBClient Members
+
+        void SBClient.Init(string username, string password, string extension)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        void SBClient.MakeCall(string number)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        object SBClient.Terminate(bool ShowLogOffWarnings)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        int SBClient.LogoffSmartBar(ref bool DisplayWarning)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        #endregion
+    }
+}
