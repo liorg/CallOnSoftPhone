@@ -3,16 +3,40 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallOnSoftPhone", "CallOnSoftPhone.csproj", "{FDB005B0-4293-40B9-B220-B57195CBCF3E}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SetupWCFCaller", "setup\SetupWCFCaller\SetupWCFCaller.isproj", "{1A1B9774-770D-426E-866D-3A656A751C3C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E} = {FDB005B0-4293-40B9-B220-B57195CBCF3E}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|x86 = CD_ROM|x86
 		Debug|x86 = Debug|x86
+		DVD-5|x86 = DVD-5|x86
 		Release|x86 = Release|x86
+		SingleImage|x86 = SingleImage|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.CD_ROM|x86.ActiveCfg = Release|x86
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.CD_ROM|x86.Build.0 = Release|x86
 		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.Debug|x86.ActiveCfg = Debug|x86
 		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.Debug|x86.Build.0 = Debug|x86
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.DVD-5|x86.ActiveCfg = Debug|x86
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.DVD-5|x86.Build.0 = Debug|x86
 		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.Release|x86.ActiveCfg = Release|x86
 		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.Release|x86.Build.0 = Release|x86
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.SingleImage|x86.ActiveCfg = Release|x86
+		{FDB005B0-4293-40B9-B220-B57195CBCF3E}.SingleImage|x86.Build.0 = Release|x86
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.CD_ROM|x86.ActiveCfg = CD_ROM
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.CD_ROM|x86.Build.0 = CD_ROM
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.Debug|x86.ActiveCfg = DVD-5
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.Debug|x86.Build.0 = DVD-5
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.DVD-5|x86.ActiveCfg = DVD-5
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.DVD-5|x86.Build.0 = DVD-5
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.Release|x86.ActiveCfg = SingleImage
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.Release|x86.Build.0 = SingleImage
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.SingleImage|x86.ActiveCfg = SingleImage
+		{1A1B9774-770D-426E-866D-3A656A751C3C}.SingleImage|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
