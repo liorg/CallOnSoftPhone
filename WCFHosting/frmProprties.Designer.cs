@@ -58,12 +58,13 @@
             // 
             // btnCall
             // 
+            this.btnCall.BackColor = System.Drawing.Color.MintCream;
             this.btnCall.Location = new System.Drawing.Point(268, 34);
             this.btnCall.Name = "btnCall";
             this.btnCall.Size = new System.Drawing.Size(75, 46);
             this.btnCall.TabIndex = 12;
             this.btnCall.Text = "חיוג בדיקה";
-            this.btnCall.UseVisualStyleBackColor = true;
+            this.btnCall.UseVisualStyleBackColor = false;
             this.btnCall.Click += new System.EventHandler(this.btnCall_Click);
             // 
             // txtExc
@@ -97,22 +98,24 @@
             // 
             // btnStart
             // 
+            this.btnStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnStart.Location = new System.Drawing.Point(18, 6);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 13;
-            this.btnStart.Text = "start";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Text = "הפעל";
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
+            this.btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnStop.Location = new System.Drawing.Point(99, 5);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 14;
-            this.btnStop.Text = "stop";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Text = "עצור";
+            this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // lblMessage
@@ -206,12 +209,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(205, 34);
+            this.button1.BackColor = System.Drawing.Color.MintCream;
+            this.button1.Location = new System.Drawing.Point(206, 34);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 45);
             this.button1.TabIndex = 18;
             this.button1.Text = "שינוי הגדרות";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtSlocha
@@ -233,17 +237,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 115);
+            this.label4.Location = new System.Drawing.Point(3, 118);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 21;
-            this.label4.Text = "הרחבה2:";
+            this.label4.Text = "מזהה לקוח:";
             // 
             // frmProprties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 154);
+            this.ClientSize = new System.Drawing.Size(355, 86);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSlocha);

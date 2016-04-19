@@ -27,8 +27,8 @@ namespace WCFHosting
                 var userName = String.IsNullOrEmpty(config.UserName) ? "" : config.UserName;
                 var pws = String.IsNullOrEmpty(config.Pws) ? "" : config.Pws;
 
-                dynamic objInit = utilites.Init(true, true, false, userName, pws, "", 0);
-                dynamic objCall=utilites.Agent_PressButton_MakeCall("", number, "");
+                int objInit = utilites.Init(true, true, false, userName, pws, "", 0);
+                int objCall=utilites.Agent_PressButton_MakeCall("", number, "");
                 return "ok user="+ userName+",pws="+ pws+" for number " + number + ",objInit=" + objInit.ToString()+",objCall=" + objCall.ToString();
             }
             catch (Exception e)
