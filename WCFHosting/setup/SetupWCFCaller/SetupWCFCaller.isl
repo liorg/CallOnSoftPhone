@@ -343,6 +343,7 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>CallOnSoftPhone.Debug_Symbols</td><td>{7FEEC8BD-6E37-410C-A923-596CD40D99CE}</td><td>INSTALLDIR</td><td>2</td><td/><td>callonsoftphone.debug_symbol</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>CallOnSoftPhone.Primary_output</td><td>{2CCF0B94-5225-4C61-8BD3-F0379FA267BE}</td><td>INSTALLDIR</td><td>2</td><td/><td>callonsoftphone.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>IS_ININSTALL_SHORTCUT</td><td>{0F73D72B-EBCA-4093-A628-70FBB1243CE1}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1054,6 +1055,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>CallOnSoftPhone.Debug_Symbols</td></row>
 		<row><td>INSTALLDIR</td><td>CallOnSoftPhone.Primary_output</td></row>
+		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1063,7 +1065,7 @@
 		<col def="S0">Target</col>
 		<col def="I4">ExtendedType</col>
 		<col def="S255">ISComments</col>
-		<row><td>AddNetsh</td><td>34</td><td>SystemFolder</td><td>[SystemFolder]cmd /c "netsh http add urlacl url=http://+:5884/CallerService user=Everyone"</td><td/><td/></row>
+		<row><td>AddNetsh</td><td>34</td><td>SystemFolder</td><td>[SystemFolder]cmd /c "netsh http add urlacl url=http://+:5884/CallerService  user=Everyone"</td><td/><td/></row>
 		<row><td>ISPreventDowngrade</td><td>19</td><td/><td>[IS_PREVENT_DOWNGRADE_EXIT]</td><td/><td>Exits install when a newer version of this product is found</td></row>
 		<row><td>ISPrint</td><td>1</td><td>SetAllUsers.dll</td><td>PrintScrollableText</td><td/><td>Prints the contents of a ScrollableText control on a dialog.</td></row>
 		<row><td>ISRunSetupTypeAddLocalEvent</td><td>1</td><td>ISExpHlp.dll</td><td>RunSetupTypeAddLocalEvent</td><td/><td>Run the AddLocal events associated with the Next button on the Setup Type dialog.</td></row>
@@ -1178,6 +1180,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
+		<row><td>malamt_1_malamteam</td><td>ProgramMenuFolder</td><td>malamt~1|malamteam</td><td/><td>1</td><td/></row>
+		<row><td>setupwcfcaller</td><td>malamt_1_malamteam</td><td>SETUPW~1|setupwcfcaller</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1871,6 +1875,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>CallOnSoftPhone.Debug_Symbols</td></row>
 		<row><td>AlwaysInstall</td><td>CallOnSoftPhone.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
 	<table name="File">
@@ -1902,6 +1907,8 @@
 	<table name="ISAssistantTag">
 		<col key="yes" def="s72">Tag</col>
 		<col def="S255">Data</col>
+		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
+		<row><td>RegistryPageEnabled</td><td>No</td></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -2030,6 +2037,7 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>CallOnSoftPhone.Debug_Symbols</td><td/><td/><td>_0830ADD9_4C1B_4A93_B22D_B78414515183_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>CallOnSoftPhone.Primary_output</td><td/><td/><td>_679DA6D5_27A7_4182_8E1E_10FDBDEA24C4_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_51F9519D_4A3E_43B9_9A24_628F66AC5F3F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2618,7 +2626,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708874067</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708860655</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1708865875</td></row>
@@ -3719,8 +3727,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MalamTeam.com</td><td>0</td><td/><td>-1708874067</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708874067</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MalamTeam.com</td><td>0</td><td/><td>-1708860655</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708860655</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-1708878163</td></row>
 	</table>
 
