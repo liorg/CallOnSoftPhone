@@ -7,27 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
+using System.Diagnostics;
 
 namespace WCFHosting
 {
     public partial class frmProprties : Form
     {
+
         private ServiceHost host;
         public frmProprties()
         {
-            InitializeComponent();
-
-            host = new ServiceHost(typeof(CallerService));
-            host.Open();
-            btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            lblMessage.Text = "Service Started";
-
-            startToolStripMenuItem.Enabled = false;
-            stopToolStripMenuItem.Enabled = true;
-            this.WindowState = FormWindowState.Minimized;
             _config = Config.GetSinglton();
-            
+            InitializeComponent();
+            TryOpen();
+        }
+
+
+        void Message(bool isOpen)
+        {
+            if (isOpen)
+            {
+                startToolStripMenuItem.Enabled = false;
+                stopToolStripMenuItem.Enabled = true;
+                btnStart.Enabled = false;
+                btnStop.Enabled = true;
+                lblMessage.Text = "Service Started";
+            }
+            else
+            {
+                startToolStripMenuItem.Enabled = true;
+                stopToolStripMenuItem.Enabled = false;
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                lblMessage.Text = "Service Stopped";
+            }
         }
 
         private void btnCall_Click(object sender, EventArgs e)
@@ -38,7 +51,7 @@ namespace WCFHosting
             var sloch = txtSlocha.Text.Trim();
             int iSloch = 0;
             int.TryParse(sloch, out iSloch);
-            
+
 
 
             dynamic utilites = Activator.CreateInstance(Type.GetTypeFromProgID("SmartBarClient.Client"));
@@ -50,34 +63,64 @@ namespace WCFHosting
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            host = new ServiceHost(typeof(CallerService));
-            host.Open();
-            btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            lblMessage.Text = "Service Started";
+            TryOpen();
+
+        }
+
+        void TryOpen()
+        {
+            try
+            {
+                host = new ServiceHost(typeof(CallerService));
+                host.Open();
+                Message(true);
+            }
+            catch (System.ServiceModel.AddressAlreadyInUseException eAlready)
+            {
+                MessageBox.Show("יש חייגן בשימוש");
+                Message(false);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("נוצרה שגיאה");
+                Message(false);
+            }
+        }
+
+
+        void TryClosed()
+        {
+            try
+            {
+                if (host != null)
+                {
+                    host.Close();
+                    Message(false);
+                }
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show("נוצרה שגיאה בסגירה");
+
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            host.Close();
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
-            lblMessage.Text = "Service Stopped";
+            TryClosed();
+
         }
         Config _config;
         private void Form1_Load(object sender, EventArgs e)
         {
-          
-            
+
+
 
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            host.Close();
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
-            startToolStripMenuItem.Enabled = true;
-            stopToolStripMenuItem.Enabled = false;
+            TryClosed();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,23 +130,14 @@ namespace WCFHosting
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            host = new ServiceHost(typeof(CallerService));
-            host.Open();
-            btnStart.Enabled = false;
-            startToolStripMenuItem.Enabled = false;
-            stopToolStripMenuItem.Enabled = true;
-            btnStop.Enabled = true;
-            lblMessage.Text = "Service Started";
+            TryOpen();
+
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            host.Close();
-            btnStart.Enabled = true;
-            startToolStripMenuItem.Enabled = true;
-            stopToolStripMenuItem.Enabled = false;
-            btnStop.Enabled = false;
-            lblMessage.Text = "Service Stopped";
+            TryClosed();
+
         }
 
         private void frmProprties_Resize(object sender, EventArgs e)
@@ -122,7 +156,10 @@ namespace WCFHosting
 
         private void btnDebug_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+            this.BringToFront();
+            this.Show();
+            //this.WindowState = FormWindowState.Normal;
+            //notifyIcon1.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,6 +168,14 @@ namespace WCFHosting
             _config.Pws = txtPws.Text;
         }
 
-        
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.BringToFront();
+            this.Show();
+        }
+
+
+
+
     }
 }
