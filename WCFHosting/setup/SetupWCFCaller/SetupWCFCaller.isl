@@ -343,6 +343,8 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>CallOnSoftPhone.Debug_Symbols</td><td>{7FEEC8BD-6E37-410C-A923-596CD40D99CE}</td><td>INSTALLDIR</td><td>2</td><td/><td>callonsoftphone.debug_symbol</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>CallOnSoftPhone.Primary_output</td><td>{2CCF0B94-5225-4C61-8BD3-F0379FA267BE}</td><td>INSTALLDIR</td><td>2</td><td/><td>callonsoftphone.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{2F756E4F-88C1-4183-B381-8D0D9038C9F7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{A5E70448-A6E3-4313-8A9A-64301448359F}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{0F73D72B-EBCA-4093-A628-70FBB1243CE1}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1055,6 +1057,8 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>CallOnSoftPhone.Debug_Symbols</td></row>
 		<row><td>INSTALLDIR</td><td>CallOnSoftPhone.Primary_output</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
@@ -1875,6 +1879,8 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>CallOnSoftPhone.Debug_Symbols</td></row>
 		<row><td>AlwaysInstall</td><td>CallOnSoftPhone.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
@@ -1908,7 +1914,7 @@
 		<col key="yes" def="s72">Tag</col>
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
-		<row><td>RegistryPageEnabled</td><td>No</td></row>
+		<row><td>RegistryPageEnabled</td><td>Yes</td></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -2037,6 +2043,8 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>CallOnSoftPhone.Debug_Symbols</td><td/><td/><td>_0830ADD9_4C1B_4A93_B22D_B78414515183_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>CallOnSoftPhone.Primary_output</td><td/><td/><td>_679DA6D5_27A7_4182_8E1E_10FDBDEA24C4_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4DD0B7BB_C3E8_4D45_B7E4_5C50940BDFA1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_F5356390_7CC4_49AD_AD65_A1C10396F3B8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_51F9519D_4A3E_43B9_9A24_628F66AC5F3F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2626,7 +2634,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708860655</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-610000562</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1708865875</td></row>
@@ -3439,6 +3447,8 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>-1708878163</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Launch |Symbols</td><td>0</td><td/><td>-609992370</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-609984178</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-1708878163</td></row>
@@ -3720,15 +3730,18 @@
 		<row><td>IDS__IsVerifyRemoveAllDlg_Remove</td><td>1033</td><td>&amp;Remove</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__IsVerifyRemoveAllDlg_RemoveProgram</td><td>1033</td><td>{&amp;MSSansBold8}Remove the Program</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__IsWelcomeDlg_InstallProductName</td><td>1033</td><td>The InstallShield(R) Wizard will install [ProductName] on your computer. To continue, click Next.</td><td>0</td><td/><td>-1708878163</td></row>
-		<row><td>IDS__IsWelcomeDlg_WarningCopyright</td><td>1033</td><td>נכתב ע"י ליאור גרוסמן מלם-תים</td><td>0</td><td/><td>-1574650167</td></row>
+		<row><td>IDS__IsWelcomeDlg_WarningCopyright</td><td>1033</td><td>Malam TEAM LTD</td><td>0</td><td/><td>-609967890</td></row>
 		<row><td>IDS__IsWelcomeDlg_WelcomeProductName</td><td>1033</td><td>{&amp;TahomaBold10}Welcome to the InstallShield Wizard for [ProductName]</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-1708878163</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MalamTeam.com</td><td>0</td><td/><td>-1708860655</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-1708860655</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MalamTeam.com</td><td>0</td><td/><td>-610000562</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>MalamTeam</td><td>0</td><td/><td>-610000562</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-609982130</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>CRMPhone</td><td>0</td><td/><td>-609995442</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>NEWSHO~1|NewShortcut2</td><td>0</td><td/><td>-609970866</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-1708878163</td></row>
 	</table>
 
@@ -3843,6 +3856,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>NewShortcut1_6E48AEC785BA4F3CAFE5E7C39015DF91.exe</td><td/><td>&lt;VSSolutionFolder&gt;\malamteam.ico</td><td>0</td></row>
+		<row><td>NewShortcut2_B7D25C9D59104B249F91D384B2E5DF98.exe</td><td/><td>&lt;VSSolutionFolder&gt;\malamteam.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3977,7 +3992,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{9991C38A-7D3D-42BC-B325-A83E4245E243}</td></row>
 		<row><td>ISUSSignature</td><td>{41A2D1E5-D16D-41F1-9E4D-95BA3CDB9F03}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewCustomActions,viewUI,viewRelease</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewCustomActions,viewUI,viewRelease,viewShortcuts,viewObjects,viewProject,viewRegistry,viewUpgradePaths</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4355,7 +4370,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]CallOnSoftPhone.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{DEBFDCAD-9F0E-49E4-9869-D08D502AF1A1}</td><td/></row>
 		<row><td>ProductName</td><td>SetupWCFCaller</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.00.0001</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4424,6 +4439,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>Registry1</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</td><td>crmphone</td><td> [INSTALLDIR]WCFHosting.exe</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry2</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</td><td>crmphne64</td><td> [INSTALLDIR]WCFHosting.exe</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
@@ -4517,6 +4534,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut1</td><td>StartupFolder</td><td>##ID_STRING4##</td><td>CallOnSoftPhone.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut1_6E48AEC785BA4F3CAFE5E7C39015DF91.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut2</td><td>DesktopFolder</td><td>##ID_STRING5##</td><td>CallOnSoftPhone.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut2_B7D25C9D59104B249F91D384B2E5DF98.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
