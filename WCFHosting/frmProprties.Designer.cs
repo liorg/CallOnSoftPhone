@@ -43,9 +43,12 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDebug = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnVersion = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnDebug = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +56,7 @@
             this.txtSlocha = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.Options.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,54 +137,74 @@
             this.toolStripMenuItem1,
             this.stopToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.btnDebug,
+            this.toolStripSeparator3,
+            this.btnVersion,
+            this.toolStripSeparator2,
             this.exitToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.btnDebug});
+            this.toolStripSeparator1});
             this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(109, 110);
+            this.Options.Size = new System.Drawing.Size(114, 144);
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(105, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(110, 6);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(105, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(110, 6);
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(113, 22);
+            this.btnDebug.Text = "debug";
+            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(110, 6);
+            // 
+            // btnVersion
+            // 
+            this.btnVersion.Name = "btnVersion";
+            this.btnVersion.Size = new System.Drawing.Size(113, 22);
+            this.btnVersion.Text = "Version";
+            this.btnVersion.Click += new System.EventHandler(this.btnVersion_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(110, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
-            // 
-            // btnDebug
-            // 
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(108, 22);
-            this.btnDebug.Text = "debug";
-            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(110, 6);
             // 
             // notifyIcon1
             // 
@@ -244,11 +268,23 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "מזהה לקוח:";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(349, 8);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(86, 66);
+            this.btnExit.TabIndex = 22;
+            this.btnExit.Text = "יציאה";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmProprties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 86);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(346, 86);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSlocha);
@@ -263,8 +299,11 @@
             this.Controls.Add(this.txtPws);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPhone);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProprties";
             this.Text = "חייגן";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProprties_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.frmProprties_Resize);
             this.Options.ResumeLayout(false);
@@ -298,6 +337,10 @@
         private System.Windows.Forms.TextBox txtSlocha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem btnVersion;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

@@ -8,18 +8,86 @@ using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.Diagnostics;
-
+using System.Threading;
+using System.Net;
+using System.IO;
 namespace WCFHosting
 {
     public partial class frmProprties : Form
     {
 
-        private ServiceHost host;
+        public static ServiceHost host;
+
         public frmProprties()
         {
             _config = Config.GetSinglton();
+            _config.SetRefresh(() =>
+            {
+                try
+                {
+
+                    MethodInvoker method = delegate
+                    {
+                        stopToolStripMenuItem.Enabled = false;
+                        startToolStripMenuItem.Enabled = true;
+                    };
+
+                    if (Options.InvokeRequired)
+                    {
+                        BeginInvoke(method);
+                    }
+                    else
+                    {
+                        method.Invoke();
+                    }
+
+                }
+                catch
+                {
+
+
+                }
+                if (this.btnStart.InvokeRequired)
+                {
+                    this.btnStart.BeginInvoke((MethodInvoker)delegate()
+                    {
+                        this.btnStart.Enabled = true;
+
+                    });
+                }
+                else
+                    this.btnStart.Enabled = true;
+
+
+                if (this.btnStop.InvokeRequired)
+                {
+                    this.btnStop.BeginInvoke((MethodInvoker)delegate()
+                    {
+                        this.btnStop.Enabled = false;
+
+                    });
+                }
+                else
+                    this.btnStop.Enabled = false;
+
+
+                if (this.lblMessage.InvokeRequired)
+                {
+                    this.lblMessage.BeginInvoke((MethodInvoker)delegate()
+                    {
+                        this.lblMessage.Text = "Service Stopped";
+
+                    });
+                }
+                else
+                {
+                    this.lblMessage.Text = "Service Stopped";
+                }
+            });
             InitializeComponent();
             TryOpen();
+
+
         }
 
 
@@ -64,7 +132,68 @@ namespace WCFHosting
         private void btnStart_Click(object sender, EventArgs e)
         {
             TryOpen();
+        }
 
+
+        public static void CallRestMethod(string url)
+        {
+            try
+            {
+                HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "GET";
+                //  webrequest.ContentType = "application/x-www-form-urlencoded";
+
+                using (HttpWebResponse webresponse = (HttpWebResponse)webrequest.GetResponse())
+                {
+                    Encoding enc = System.Text.Encoding.GetEncoding("utf-8");
+                    //StreamReader responseStream = new StreamReader(webresponse.GetResponseStream(), enc);
+                    //string result = string.Empty;
+                    //result = responseStream.ReadToEnd();
+                    //webresponse.Close();
+                }
+            }
+            catch { }
+
+            // return result;
+        }
+        void TryOpenAgain()
+        {
+            try
+            {
+                host = new ServiceHost(typeof(CallerService));
+                host.Open();
+                Message(true);
+            }
+            catch (System.ServiceModel.AddressAlreadyInUseException eAlready)
+            {
+                MessageBox.Show("יש חייגן בשימוש");
+                Message(false);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("נוצרה שגיאה");
+                Message(false);
+            }
+
+
+        }
+
+        void TryCloseOtherProcess()
+        {
+            try
+            {
+                Process self = Process.GetCurrentProcess();
+                foreach (Process p in Process.GetProcessesByName(self.ProcessName).Where(p => p.Id != self.Id))
+                {
+                    //MessageBox.Show("to be kill " + p.ProcessName);
+                    p.Kill();
+                }
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show("נוצרה שגיאה");
+            }
         }
 
         void TryOpen()
@@ -77,8 +206,9 @@ namespace WCFHosting
             }
             catch (System.ServiceModel.AddressAlreadyInUseException eAlready)
             {
-                MessageBox.Show("יש חייגן בשימוש");
-                Message(false);
+                // יש חייגן בשימוש
+                CallRestMethod("http://localhost:5884/CallerService/stop");
+                TryOpenAgain();
             }
             catch (Exception ee)
             {
@@ -172,6 +302,28 @@ namespace WCFHosting
         {
             this.BringToFront();
             this.Show();
+        }
+
+        private void btnVersion_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("version : 1.0.0.1");
+        }
+
+        private void frmProprties_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // e.Cancel = true;
+            //Hide();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
 
 

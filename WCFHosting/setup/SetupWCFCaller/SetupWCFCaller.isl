@@ -3856,7 +3856,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
-		<row><td>NewShortcut1_6E48AEC785BA4F3CAFE5E7C39015DF91.exe</td><td/><td>&lt;VSSolutionFolder&gt;\malamteam.ico</td><td>0</td></row>
 		<row><td>NewShortcut2_B7D25C9D59104B249F91D384B2E5DF98.exe</td><td/><td>&lt;VSSolutionFolder&gt;\malamteam.ico</td><td>0</td></row>
 	</table>
 
@@ -4534,7 +4533,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>StartupFolder</td><td>##ID_STRING4##</td><td>CallOnSoftPhone.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut1_6E48AEC785BA4F3CAFE5E7C39015DF91.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>NewShortcut2</td><td>DesktopFolder</td><td>##ID_STRING5##</td><td>CallOnSoftPhone.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut2_B7D25C9D59104B249F91D384B2E5DF98.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
