@@ -19,7 +19,7 @@ namespace WindowsFormsOcx
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           //axClient1.Agent_PressButton_MakeCall(
+        //   axClient1.Agent_PressButton_MakeCall(
         }
     }
 }

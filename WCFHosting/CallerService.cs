@@ -15,10 +15,11 @@ namespace WCFHosting
         //  //http://localhost:5884/CallService/Call/444444
         public string Call(string number)
         {
+            Logger logger = new Logger();
             try
             {
                 Config config = Config.GetSinglton();
-
+             
                 //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
                 //HttpContext.Current.Response.AddHeader("Access-Control-Request-Method", "POST,GET,PUT,DELETE,OPTIONS");
                 //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Content-Length,Accept");
@@ -33,13 +34,14 @@ namespace WCFHosting
             }
             catch (Exception e)
             {
-
+                logger.Write(e.ToString());
                 return e.ToString();
             }
         }
 
         public void Stop()
         {
+            Logger logger = new Logger();
             try
             {
                 Config config = Config.GetSinglton();
@@ -47,8 +49,8 @@ namespace WCFHosting
               
                 if (frmProprties.host != null)
                     frmProprties.host.Close();
-                
 
+                logger.Write("stop dialer", System.Diagnostics.EventLogEntryType.SuccessAudit);
             }
             catch 
             {
@@ -63,7 +65,8 @@ namespace WCFHosting
 
         public string Ping()
         {
-           
+            Logger logger = new Logger();
+            logger.Write("Ping dialer", System.Diagnostics.EventLogEntryType.SuccessAudit);
             return "ok";
 
         }

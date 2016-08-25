@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Net;
 using System.IO;
+using Microsoft.Win32;
 namespace WCFHosting
 {
     public partial class frmProprties : Form
@@ -21,76 +22,104 @@ namespace WCFHosting
         public frmProprties()
         {
             _config = Config.GetSinglton();
-            _config.SetRefresh(() =>
-            {
-                try
-                {
 
-                    MethodInvoker method = delegate
-                    {
-                        stopToolStripMenuItem.Enabled = false;
-                        startToolStripMenuItem.Enabled = true;
-                    };
-
-                    if (Options.InvokeRequired)
-                    {
-                        BeginInvoke(method);
-                    }
-                    else
-                    {
-                        method.Invoke();
-                    }
-
-                }
-                catch
-                {
-
-
-                }
-                if (this.btnStart.InvokeRequired)
-                {
-                    this.btnStart.BeginInvoke((MethodInvoker)delegate()
-                    {
-                        this.btnStart.Enabled = true;
-
-                    });
-                }
-                else
-                    this.btnStart.Enabled = true;
-
-
-                if (this.btnStop.InvokeRequired)
-                {
-                    this.btnStop.BeginInvoke((MethodInvoker)delegate()
-                    {
-                        this.btnStop.Enabled = false;
-
-                    });
-                }
-                else
-                    this.btnStop.Enabled = false;
-
-
-                if (this.lblMessage.InvokeRequired)
-                {
-                    this.lblMessage.BeginInvoke((MethodInvoker)delegate()
-                    {
-                        this.lblMessage.Text = "Service Stopped";
-
-                    });
-                }
-                else
-                {
-                    this.lblMessage.Text = "Service Stopped";
-                }
-            });
+            SystemEvents.SessionSwitch += SessionSwitch;
+            _config.SetRefresh(RefreshUIAsync);
             InitializeComponent();
             TryOpen();
-
-
         }
 
+        void SessionSwitch(object sender, SessionSwitchEventArgs args)
+        {
+            Logger logger = new Logger();
+            logger.Write("switch user", EventLogEntryType.Information);
+            switch (args.Reason)
+            {
+                case SessionSwitchReason.ConsoleConnect:
+                case SessionSwitchReason.RemoteConnect:
+                //  case SessionSwitchReason.SessionLogon:
+                case SessionSwitchReason.SessionUnlock:
+                    TryOpen();
 
+                    break;
+                default:
+                    break;
+            }
+            //if (args.Reason == SessionSwitchReason.SessionLock)
+            //{
+            //    logger.Write("SessionLock", EventLogEntryType.Information);
+            //}
+            //if (args.Reason == SessionSwitchReason.SessionUnlock)
+            //{
+            //    logger.Write("SessionUnlock", EventLogEntryType.Information);
+            //}
+            //logger.Write("Reason=" + args.Reason.ToString(), EventLogEntryType.Information);
+        }
+
+        void RefreshUIAsync()
+        {
+            try
+            {
+
+                MethodInvoker method = delegate
+                {
+                    stopToolStripMenuItem.Enabled = false;
+                    startToolStripMenuItem.Enabled = true;
+                };
+
+                if (Options.InvokeRequired)
+                {
+                    BeginInvoke(method);
+                }
+                else
+                {
+                    method.Invoke();
+                }
+
+            }
+            catch
+            {
+
+
+            }
+            if (this.btnStart.InvokeRequired)
+            {
+                this.btnStart.BeginInvoke((MethodInvoker)delegate()
+                {
+                    this.btnStart.Enabled = true;
+
+                });
+            }
+            else
+                this.btnStart.Enabled = true;
+
+
+            if (this.btnStop.InvokeRequired)
+            {
+                this.btnStop.BeginInvoke((MethodInvoker)delegate()
+                {
+                    this.btnStop.Enabled = false;
+
+                });
+            }
+            else
+                this.btnStop.Enabled = false;
+
+
+            if (this.lblMessage.InvokeRequired)
+            {
+                this.lblMessage.BeginInvoke((MethodInvoker)delegate()
+                {
+                    this.lblMessage.Text = "Service Stopped";
+
+                });
+            }
+            else
+            {
+                this.lblMessage.Text = "Service Stopped";
+            }
+        }
+        
         void Message(bool isOpen)
         {
             if (isOpen)
@@ -158,21 +187,25 @@ namespace WCFHosting
         }
         void TryOpenAgain()
         {
+            Logger logger = new Logger();
             try
             {
                 host = new ServiceHost(typeof(CallerService));
                 host.Open();
                 Message(true);
+                logger.Write("Try Open Again Port succesfully", EventLogEntryType.SuccessAudit);
             }
             catch (System.ServiceModel.AddressAlreadyInUseException eAlready)
             {
                 MessageBox.Show("יש חייגן בשימוש");
                 Message(false);
+                logger.Write("Try Open Again  => ש חייגן בשימוש " + eAlready.ToString());
             }
             catch (Exception ee)
             {
                 MessageBox.Show("נוצרה שגיאה");
                 Message(false);
+                logger.Write("Try Open Again =>unhandle Exception " + ee.ToString());
             }
 
 
@@ -198,40 +231,48 @@ namespace WCFHosting
 
         void TryOpen()
         {
+            Logger logger = new Logger();
             try
             {
                 host = new ServiceHost(typeof(CallerService));
                 host.Open();
                 Message(true);
+                logger.Write("Open Port succesfully", EventLogEntryType.SuccessAudit);
             }
             catch (System.ServiceModel.AddressAlreadyInUseException eAlready)
             {
+
                 // יש חייגן בשימוש
                 CallRestMethod("http://localhost:5884/CallerService/stop");
+                logger.Write("finish Close Port", EventLogEntryType.Warning);
                 TryOpenAgain();
             }
             catch (Exception ee)
             {
                 MessageBox.Show("נוצרה שגיאה");
                 Message(false);
+                logger.Write("Open  =>unhandle Exception " + ee.ToString());
             }
         }
 
 
         void TryClosed()
         {
+            Logger logger = new Logger();
             try
             {
                 if (host != null)
                 {
                     host.Close();
                     Message(false);
+                    logger.Write("Try Close Succesfully", EventLogEntryType.SuccessAudit);
                 }
             }
 
             catch (Exception ee)
             {
                 MessageBox.Show("נוצרה שגיאה בסגירה");
+                logger.Write("Try Close Error " + ee.ToString());
 
             }
         }
@@ -306,7 +347,7 @@ namespace WCFHosting
 
         private void btnVersion_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("version : 1.0.0.1");
+            MessageBox.Show("version : 1.0.0.2");
         }
 
         private void frmProprties_FormClosing(object sender, FormClosingEventArgs e)
